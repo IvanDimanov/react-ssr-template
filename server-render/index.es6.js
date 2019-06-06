@@ -14,7 +14,7 @@ import generateInitialFetchedServerData from './generateInitialFetchedServerData
 import {clearInitialFetchedServerData} from '../src/dataFetchers/initialFetchedServerData';
 import Routes from '../src/routes.server';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 express()
     .disable('x-powered-by')

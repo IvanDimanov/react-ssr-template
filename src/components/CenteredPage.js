@@ -6,7 +6,7 @@ import classNames from 'classnames';
 const styles = (theme) => ({
   content: {
     margin: `${theme.spacing(1)}px auto 0px`,
-    width: '500px',
+    width: 600,
   },
 });
 

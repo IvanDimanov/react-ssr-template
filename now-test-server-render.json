@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "alias": "react-ssr-template.now.sh",
+
+  "builds": [
+    { "src": "./package.json", "use": "@now/static-build" },
+
+/*
+    Main issues with this build are that:
+    1) Now wraps "./server-render/index.js" into lambda
+       which prevents the BackEnd code to access the statically build files from "./package.json"
+
+    2) Now cannot correctly transpile ES6 code from `./server-render/index.es6.js` (even with the elaborate plugins of `./server-render/index.es6.js`)
+       This makes importing React files (like Routes and pages) impossible
+*/
+    { "src": "./server-render/index.js", "use": "@now/node-server" }
+  ],
+
+  "routes": [
+    { "src": "/index.html", "dest": "/server-render/index.js" },
+    { "src": "(.+[\\.].+)", "dest": "$1" },
+    { "src": "(.*)", "dest": "/server-render/index.js" }
+  ]
+}
