@@ -16,7 +16,7 @@
     "test": "echo No tests for now",
     "prebuild": "npm run lint && npm run test",
     "build": "webpack --config webpack/config.production.js",
-    "start": "npm run build && node ./server-render/index.js",
+    "now-build": "npm run build",
     "local-development": "webpack-dev-server --config webpack/config.development.js",
     "watch-fe": "webpack --watch --config webpack/config.development.js",
     "watch-be": "nodemon ./server-render --config ./nodemon.json",

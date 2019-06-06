@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "alias": "react-ssr-template.now.sh",
+
+  "builds": [
+    { "src": "./package.json", "use": "@now/static-build" }
+  ]
+}
