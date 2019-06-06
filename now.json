@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "react-ssr-template.now.sh",
+
+  "builds": [
+    { "src": "./package.json", "use": "@now/static-build" },
+    { "src": "./server-render/index.js", "use": "@now/node-server" }
+  ],
+
+  "routes": [
+    { "src": "/index.html", "dest": "/server-render/index.js" },
+    { "src": "(.+[\\.].+)", "dest": "$1" },
+    { "src": "(.*)", "dest": "/server-render/index.js" }
+  ]
+}

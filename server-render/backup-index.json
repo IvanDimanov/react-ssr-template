@@ -1,0 +1,3 @@
+{
+  "html": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\" /><title>React SSR Template</title><style>html, body {margin: 0;padding: 0;}</style><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500\" /><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" /><link rel=\"shortcut icon\" href=\"/favicon.ico\"></head><body><div id=\"app\" /><script type=\"text/javascript\" src=\"/manifest.bundle.js\"></script><script type=\"text/javascript\" src=\"/vendors.bundle.js\"></script><script type=\"text/javascript\" src=\"/main.bundle.js\"></script></body></html>"
+}

@@ -1,0 +1,13 @@
+{
+  "verbose": true,
+  "events": {
+    "restart": "npm run build"
+  },
+  "watch": [
+    "./src/",
+    "./server-render/"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

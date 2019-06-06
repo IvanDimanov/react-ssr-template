@@ -1,0 +1,29 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "google"],
+  "parser": "babel-eslint",
+
+  "env": {
+    "node": true,
+    "browser": true,
+    "jasmine": true
+  },
+
+  "globals": {
+    "Promise": true,
+  },
+
+  "rules": {
+    "no-invalid-this": 0,
+    "require-jsdoc": 0,
+    "max-len": [2, 130, 2, {
+      "ignoreUrls": true,
+      "ignoreComments": false
+    }]
+  },
+
+  "settings": {
+    "react": {
+      "version": "16"
+    }
+  }
+}
