@@ -89,5 +89,5 @@ express()
     })
 
     .listen(PORT, () => {
-      process.stdin.write(`\nServer Side Rendering on port ${PORT}\n`);
+      process.stdout.write(`\nServer Side Rendering on port ${PORT}\n`);
     });

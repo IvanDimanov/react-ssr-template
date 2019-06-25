@@ -3,10 +3,10 @@
   "alias": "react-ssr-template.now.sh",
 
   "builds": [
-    { "src": "./package.json", "use": "@now/static-build" }
+    { "src": "./server-render/index.js", "use": "@now/node-server", "config": { "bundle": false, "maxLambdaSize": "40mb" } }
   ],
 
   "routes": [
-    { "src": "^[^\\.]+$", "dest": "/" }
+    { "src": "/(.*)", "dest": "/server-render/index.js" }
   ]
 }
