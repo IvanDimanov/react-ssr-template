@@ -25,6 +25,7 @@ const Header = ({classes}) => {
         <Typography className={classes.flex}>
           <LinkButton path='/home' label='Home' />
           <LinkButton path='/people' label='People' />
+          <LinkButton path='/terminal' label='Terminal' />
           <LinkButton path='/not-found' label='(Test broken link)' />
         </Typography>
 

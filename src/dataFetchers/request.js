@@ -39,9 +39,9 @@ const request = async (args) => {
 
 /* Short-hands */
 request.getAuthorizationHeader = () => authorizationHeader;
-request.get = (url, args) => request(url, {...args, method: 'GET'});
-request.put = (url, args) => request(url, {...args, method: 'PUT'});
-request.post = (url, args) => request(url, {...args, method: 'POST'});
-request.delete = (url, args) => request(url, {...args, method: 'DELETE'});
+request.get = (url, args) => request({...args, url, method: 'GET'});
+request.put = (url, args) => request({...args, url, method: 'PUT'});
+request.post = (url, args) => request({...args, url, method: 'POST'});
+request.delete = (url, args) => request({...args, url, method: 'DELETE'});
 
 export default request;

